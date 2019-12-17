@@ -50,6 +50,14 @@ void the_curve(class c, grade g) {
 		jlist * studentdata = curr->data.list;
 		printf("name: %s %s, score: %f\n", studentdata->next->data.txt, studentdata->data.txt, g.score[i]);
 	}
+
+	// average and median
+	float average = 0;
+	for (i = 0; i < class_size; i++) {
+		average = average + g.score[i];
+	}
+	average = average / class_size; 
+	printf("Average Score: %f, Median Score: %f\n", average, g.score[class_size / 2]);
 }
 
 int main(int argc, char* argv[]) {
@@ -135,7 +143,6 @@ grade get_grade(class c) {
 				index[nexti] = index[cpyi];
 				index[cpyi]  = tempidx;
 			}
-			nexti = (cpyi - 1) / 2;
 		}
 	}
 
@@ -203,7 +210,7 @@ class scan_data() {
 
 		data_t userdata;
 		jlist * userhead = NULL;
-		
+
 		// add first name
 		char * allocstr = malloc((strlen(first_name) + 1) * sizeof(*allocstr));
 		userdata.txt = allocstr;
