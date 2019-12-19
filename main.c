@@ -48,7 +48,14 @@ void the_curve(class c, grade g) {
 
 		// display name
 		jlist * studentdata = curr->data.list;
-		printf("name: %s %s, score: %f\n", studentdata->next->data.txt, studentdata->data.txt, g.score[i]);
+		printf("name: %s %s, e1: %.2lf, e2: %.2lf, e3: %.2lf, f: %.2lf, hw: %.2lf, score: %.2f\n", studentdata->next->data.txt, 
+				                                                    studentdata->data.txt, 
+										    studentdata->next->next->data.flt, 
+										    studentdata->next->next->next->data.flt, 
+										    studentdata->next->next->next->next->data.flt, 
+										    studentdata->next->next->next->next->next->data.flt, 
+										    studentdata->next->next->next->next->next->next->data.flt, 
+										    g.score[i]);
 	}
 
 	// average and median
@@ -57,7 +64,7 @@ void the_curve(class c, grade g) {
 		average = average + g.score[i];
 	}
 	average = average / class_size; 
-	printf("Average Score: %f, Median Score: %f\n", average, g.score[class_size / 2]);
+	printf("Number of Students: %d, Average Score: %f, Median Score: %f\n", class_size, average, g.score[class_size / 2]);
 }
 
 int main(int argc, char* argv[]) {
@@ -103,8 +110,9 @@ grade get_grade(class c) {
 		float m1 = (0.15 * hw) + (0.2 * e1) + (0.2 * e2) + (0.2 * e3) + (0.25 * f);
 		float m2 = (0.1 * hw) + (0.35 * f);
 		do {
-			int min    = e3;
-			int summax = e1 + e2;
+			float min, summax;
+			min    = e3;
+			summax = e1 + e2;
 			if (e1 < e2 && e1 < e3) {
 				min    = e1;
 				summax = e2 + e3;
@@ -116,8 +124,12 @@ grade get_grade(class c) {
 			m2 = m2 + (min * 0.05) + (0.25 * summax);
 		}while(false);
 
+		//printf("name: %s, e1: %f, e2: %f, e3: %f, f: %f, hw: %f, m1: %f, m2: %f, min: %f, summax: %f\n", curr->data.list->data.txt, 
+				//e1, e2, e3, f, hw, m1, m2, min, summax);
+
 		score[i] = m1 > m2 ? m1: m2;
-		assert(m2 <= 1.0);
+		// extra credit for all
+		score[i] += 0.02;
 		index[i] = i;
 		i++;
 	}
