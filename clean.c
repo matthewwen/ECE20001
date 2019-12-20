@@ -28,7 +28,7 @@ void scan_datav2() {
 		printf("%s\n%s\n", first_name, last_name);
 
 		// filter out unused
-		error = fscanf(fp, "%s", first_name) == 1; // marito
+		error = fscanf(fp, "%s", first_name) == 1; // username
 		error = fscanf(fp, "%f", &score) == 1; // id
 		error = fscanf(fp, "%s", first_name) == 1; //date month
 		error = fscanf(fp, "%s", first_name) == 1; //date day, 
