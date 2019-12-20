@@ -19,23 +19,27 @@ void the_curve(class c, grade g) {
 	int drank = class_size * 0.7;
 	int frank = class_size * 0.9;
 
+	// print header
+	FILE * fp = fopen("result.csv", "w");
+	fprintf(fp, "Rank, Name, Exam 1, Exam 2, Exam 3, Final, HW, Final Score\n");
+	char * rank = NULL;
 	// display rank
 	int i, j;
 	for (i = 0; i < class_size; i++) {
 		if (i == 0) {
-			printf("A Rank\n");
+			rank = "A";
 		}
 		else if (i == brank) {
-			printf("B Rank\n");
+			rank = "B";
 		}
 		else if (i == crank) {
-			printf("C Rank\n");
+			rank = "C";
 		}
 		else if (i == drank) {
-			printf("D Rank\n");
+			rank = "D";
 		}
 		else if (i == frank) {
-			printf("F Rank\n");
+			rank = "F";
 		}
 
 		jobject * curr = c.head;
@@ -48,15 +52,17 @@ void the_curve(class c, grade g) {
 
 		// display name
 		jlist * studentdata = curr->data.list;
-		printf("name: %s %s, e1: %.2lf, e2: %.2lf, e3: %.2lf, f: %.2lf, hw: %.2lf, score: %.2f\n", studentdata->next->data.txt, 
+		fprintf(fp, "%s, %s %s, %.2lf, %.2lf, %.2lf, %.2lf, %.2lf, %.2f\n", rank,
+				                                                    studentdata->next->data.txt, 
 				                                                    studentdata->data.txt, 
-										    studentdata->next->next->data.flt, 
-										    studentdata->next->next->next->data.flt, 
-										    studentdata->next->next->next->next->data.flt, 
-										    studentdata->next->next->next->next->next->data.flt, 
-										    studentdata->next->next->next->next->next->next->data.flt, 
-										    g.score[i]);
+									            studentdata->next->next->data.flt * 100, 
+									            studentdata->next->next->next->data.flt * 100, 
+									            studentdata->next->next->next->next->data.flt * 100, 
+									            studentdata->next->next->next->next->next->data.flt * 100, 
+									            studentdata->next->next->next->next->next->next->data.flt * 100, 
+									            g.score[i] * 100);
 	}
+	fclose(fp);
 
 	// average and median
 	float average = 0;
