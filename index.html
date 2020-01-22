@@ -35,11 +35,14 @@
 
       <div class="mdc-drawer__content" style="width: 100%;">
         <div class="mdc-drawer__header">
-          <h3 class="mdc-drawer__title">Contact</h3>
+          <h3 class="mdc-drawer__title">Contact to Suggest</h3>
           <h6 class="mdc-drawer__subtitle">wen101@purdue.edu</h6>
         </div>
 
         <nav class="mdc-list" id='side-action-list'>
+          <a id="menu-grading" class="mdc-list-item" href="#heading-resources" aria-current="page">
+            <span class="mdc-list-item__text">Helpful Resources</span>
+          </a>
           <a id="menu-grading" class="mdc-list-item" href="#heading-grading" aria-current="page">
             <span class="mdc-list-item__text">Grade Calculator</span>
           </a>
@@ -50,8 +53,8 @@
             <span class="mdc-list-item__text">Tips and Tricks</span>
           </a>
         </nav>
-
       </div>
+      
     </aside>
 
     <div class="mdc-drawer-app-content">
@@ -71,6 +74,9 @@
         <section id="content-section" style="margin:0 auto; width: 1024px; "
           class="mdc-elevation--z4">
           <article id="article-section" class="mdc-typography" style="margin: 0; padding: 20px;">
+            <h1 id=heading-resources class="mdc-typography--headline1" style="margin-bottom: 0;padding-bottom: 0;">ECE 20001 / ECE 201 Resources</h1>
+            <a href=https://www.dropbox.com/sh/okg4k0ouhziu7wq/AABqcFvDdEzcQa2_B7pQjt3Ma?dl=0>Work in Progress. Access this Dropbox Link.</a>
+
             <h1 class="mdc-typography--headline1" id="heading-grading">Grade Calculator</h1>
 
             <div class="mdc-grid-list" style="margin: 20px;">
@@ -132,11 +138,11 @@
 
             <p class="mdc-typography--body1">Sample size is 246 out of around 410 stuents. Grade is dependent on how well your section did. This is the breakdown. The first 20% got an A [A+, A, A-], the next 20% got a B, the next 30% got a C, 
               next 20% got a D, and the last 10% got an F. There a 2% bonus for the survey at the end of the semester.
-              <br> <a href=https://github.com/matthewwen/thecurve/blob/master/main.c>Method: Parser (json). Sort Method (min-heap) at O(n) space [linked list to array], O(n * log(n)) time.</a>
+              <br> <a href=https://github.com/matthewwen/thecurve/blob/master/thecurve/main.c>Method: Parser (json). Sort Method (min-heap) at O(n) space [linked list to array], O(n * log(n)) time.</a>
             </p>
 
             <div class="mdc-data-table" style="margin:0 auto;">
-              <table class="mdc-data-table__table" aria-label="Dessert calories">
+              <table class="mdc-data-table__table">
                 <thead>
                   <tr class="mdc-data-table__header-row">
                     <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Score (include +/-) </th>
@@ -184,20 +190,27 @@
             </div>
 
             <h1 id=heading-tips class="mdc-typography--headline1">Tips and Tricks</h1>
+            <h4 class="mdc-typography--headline4">USE PIAZZA PLEASE!!!</h4>
+            <p class="mdc-typography--body1">Professors and TAs want to know the type of questions you are struggling on. DO NOT ask people on GroupMe because A. You will probably get the wrong answer and B. Your professor wouldn't know how to improve unless you make a comment about it.
+            </p>
+            <h4 class="mdc-typography--headline4">This website is not helpful. Why does it exist?</h4>
+            <p class="mdc-typography--body1"> I apologize. However, when I was a TA for this class, I noticed a ton of hardworking students who, in my opinion, deserved an A but ended up barely passing. As a result, I want to try my best to help ECE students, and I guess ME and IE majors, get over this hump by giving out potential resources that they can help current / future students STUDY EFFECTIVELY. If you think this website can be better, send a suggestion to the developer inside the hambergermenu (mwen doesn't bite).
+            </p>
             <h4 class="mdc-typography--headline4">I am struggling on the Homework. What should I do?</h4>
-            <p class="mdc-typography--body1">I would recommend going to office hours. Some of the TAs are nice. In addition, your professors hosts office hours. However, the homework is not exactly like the exam. Therefore, you should not be caught up with the homework
-              if you are struggling on it. If you are in a rush, at least UNDERSTAND THE CONCEPT.
+            <p class="mdc-typography--body1">I would recommend going to office hours (open 35 hours a week). Some of the TAs are nice. In addition, your professors host office hours. However, the homework is not exactly like the exam. Therefore, you should not be caught up with the homework if you are struggling on it. If you are in a rush, at least UNDERSTAND THE CONCEPT.
             </p>
             <h4 class="mdc-typography--headline4">I got less than a 50% on my first exam. What should I do?</h4>
-            <p class="mdc-typography--body1">It is still possible to get an A in the class. [exam 2: 90%, exam 3: 90%, final: 70%, homework: 100%]. Understand what you did wrong and do better next time.</p>
+            <p class="mdc-typography--body1">It is still possible to get an A in the class. Here is an example: [exam 1: 20, exam 2: 90%, exam 3: 90%, final: 76%, homework: 100%]. Even ask Tridib Saha about it. Understand what you did wrong and then do better next time.</p>
             <h4 class="mdc-typography--headline4">What concept is the most important to understand in this class?</h4>
             <p class="mdc-typography--body1">OHMS LAW aka V = I * R. This does not mean just memorize the formula. You need to understand the relationship current has towards a resistor / capactior/ inductor to create a voltage potential. 
               To do so, understand the location of the positive and negative terminal [Voltage Terminal] of a load [resistor, inductor, capactior], and the direction of current to get the correct answer</p>
             <h4 class="mdc-typography--headline4">How do I get an A in the class?</h4>
             <p class="mdc-typography--body1">Understand ohms law before the first exam, as discussed above [completely -> what is a node? How nodes have a voltage potential?]. Afterwards, you are set for the rest of the semester.</p>
             <h4 class="mdc-typography--headline4">How do I complain about the difficulty of the exam?</h4>
-            <p class="mdc-typography--body1" style="margin-bottom: 100px;">If you hate good professors and your TAs, use Piazza. Bad professors do not check piazza. Otherwise, talk about it with your professor with an attitude. Respect that this course may be difficult for many people, even those who are extremely 
-              hardworking.
+            <p class="mdc-typography--body1" style="margin-bottom: 100px;">If you hate good professors and your TAs, use Piazza. Bad professors do not check piazza. Otherwise, talk about it with your professor with an attitude. Respect that this course may be difficult for many people, even those who are extremely hardworking.
+            </p>
+            <h4 class="mdc-typography--headline4">I'm a better web developer than you. What should I do?</h4>
+            <p class="mdc-typography--body1">Ahhh, fine. What you can do is fork the <a href="https://github.com/matthewwen/ECE20001">repository</a>, and then send me an <a href="wen101@purdue.edu">email</a> about it. I'll check it out and make some changes. I'm always willing to improve my nifty coding ability. I am still trying to make it mobile friendly in the first place. 
             </p>
           </article>
         </section>
@@ -212,6 +225,7 @@
           aria-modal="true"
           aria-labelledby="my-dialog-title"
           aria-describedby="my-dialog-content">
+
           <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
           <h2 class="mdc-dialog__title" id="my-dialog-title">Calculated Score</h2>
           <div class="mdc-dialog__content" id="my-dialog-content">Dialog body text goes here.</div>
@@ -222,7 +236,9 @@
           </footer>
         </div>
       </div>
+
       <div class="mdc-dialog__scrim"></div>
+
     <!-- End of root -->
   </div>
 </body>
