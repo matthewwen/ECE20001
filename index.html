@@ -1,401 +1,284 @@
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>ECE 20001 / 201 Survival Guide</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>ECE 20001 / 201 Survival Guide</title>
 
-  <link href="cdn/material-components-web.min.css" rel="stylesheet">
-  <link href="cdn/googlecss.css" rel="stylesheet">
-  <script src="cdn/material-components-web.min.js"></script>
-  <link rel="stylesheet" href="cdn/icon.css">
+		<link href="cdn/material-components-web.min.css" rel="stylesheet">
+		<link href="cdn/googlecss.css" rel="stylesheet">
+		<link href="cdn/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="cdn/icon.css">
+		<link href="css/index.css" rel="stylesheet">
 
-  <!-- important -->
-  <script src="cdn/js.cookie.min.js"></script>
-  <!-- <script type="module" src="cdn/js.cookie.mjs"></script> -->
+		<!-- important -->
+		<!-- <script src="cdn/js.cookie.min.js"></script> -->
+		<!-- <script type="module" src="cdn/js.cookie.mjs"></script> -->
+		<script src="cdn/jquery-1.11.0.min.js"></script>
+		<script src="cdn/jquery.cookie.js"></script>
+		<script src="cdn/bootstrap/js/bootstrap.js"></script>
+		<script src="cdn/popper.min.js"></script>
+		<script src="cdn/material-components-web.min.js"></script>
+	</head>
 
-  <style>
-    .my-grid-list .mdc-grid-tile {
-      width: 400px;
-      --mdc-grid-list-tile-width: 300px;
-    }
-    .h4 {
-      padding-bottom: 0px;
-      margin-bottom: 0px;
-    }
-  </style>
+	<body style="margin:0px;padding:0px;overflow: hidden;" class="mdc-typography">
+		<div id=root class="top-app-bar__frame">
 
-</head>
+			<!-- Side Drawer -->
+			<aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open" id="side-action-drawer">
 
-<body style="margin:0px;padding:0px;overflow: hidden;" class="mdc-typography">
-  <div id=root class="top-app-bar__frame">
+				<div class="mdc-drawer__content" style="width: 100%;">
+					<div class="mdc-drawer__header">
+						<h3 class="mdc-drawer__title">Contact to Suggest</h3>
+						<h6 class="mdc-drawer__subtitle">wen101@purdue.edu</h6>
+					</div>
 
-    <!-- Side Drawer -->
-    <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--open" id="side-action-drawer">
+					<nav class="mdc-list" id='side-action-list'>
+						<a id="menu-grading" class="mdc-list-item" href="#heading-resources" aria-current="page">
+							<span class="mdc-list-item__text">Helpful Resources</span>
+						</a>
+						<a id="menu-grading" class="mdc-list-item" href="#heading-grading" aria-current="page">
+							<span class="mdc-list-item__text">Grade Calculator</span>
+						</a>
+						<a id="menu-previous" class="mdc-list-item" href="#heading-previous">
+							<span class="mdc-list-item__text">Previous Year Results</span>
+						</a>
+						<a id="menu-tips" class="mdc-list-item" href="#heading-tips">
+							<span class="mdc-list-item__text">Tips and Tricks</span>
+						</a>
+					</nav>
+				</div>
 
-      <div class="mdc-drawer__content" style="width: 100%;">
-        <div class="mdc-drawer__header">
-          <h3 class="mdc-drawer__title">Contact to Suggest</h3>
-          <h6 class="mdc-drawer__subtitle">wen101@purdue.edu</h6>
-        </div>
+			</aside>
 
-        <nav class="mdc-list" id='side-action-list'>
-          <a id="menu-grading" class="mdc-list-item" href="#heading-resources" aria-current="page">
-            <span class="mdc-list-item__text">Helpful Resources</span>
-          </a>
-          <a id="menu-grading" class="mdc-list-item" href="#heading-grading" aria-current="page">
-            <span class="mdc-list-item__text">Grade Calculator</span>
-          </a>
-          <a id="menu-previous" class="mdc-list-item" href="#heading-previous">
-            <span class="mdc-list-item__text">Previous Year Results</span>
-          </a>
-          <a id="menu-tips" class="mdc-list-item" href="#heading-tips">
-            <span class="mdc-list-item__text">Tips and Tricks</span>
-          </a>
-        </nav>
-      </div>
-      
-    </aside>
+			<div class="mdc-drawer-app-content">
+				<!-- Top Bar -->
+				<header class="mdc-top-app-bar" id="pkg-top-app-bar">
+					<div class="mdc-top-app-bar__row">
+						<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+							<a id="hambergermenu" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</a>
+							<span class="mdc-top-app-bar__title" id=mdc-top-bar-title>ECE 20001 / 201 Survival Guide</span>
+						</section>
+					</div>
+				</header>
 
-    <div class="mdc-drawer-app-content">
-      <!-- Top Bar -->
-      <header class="mdc-top-app-bar" id="pkg-top-app-bar">
-        <div class="mdc-top-app-bar__row">
-          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <a id="hambergermenu" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</a>
-            <span class="mdc-top-app-bar__title" id=mdc-top-bar-title>ECE 20001 / 201 Survival Guide</span>
-          </section>
-        </div>
-      </header>
+				<!-- Content -->
+				<div class="mdc-top-app-bar--fixed-adjust" style="overflow: auto; height: 100%;" id='main-content'>
 
-      <!-- Content -->
-      <div class="mdc-top-app-bar--fixed-adjust" style="overflow: auto; height: 100%;" id='main-content'>
-        <div class="mdc-drawer-scrim" style="margin: 0 0;"></div>
-        <section id="content-section" style="margin:0 auto; max-width: 1024px;"
-          class="mdc-elevation--z4">
-          <article id="article-section" class="mdc-typography" style="margin: 0; padding: 20px;">
-            <h1 id=heading-resources class="mdc-typography--headline1" style="margin-bottom: 0;padding-bottom: 0;">ECE 20001 / ECE 201 Resources</h1>
-            <a href='https://www.dropbox.com/sh/okg4k0ouhziu7wq/AABqcFvDdEzcQa2_B7pQjt3Ma?dl=0'>Work in Progress. Click me for now.</a>
+					<div class="mdc-drawer-scrim" style="margin: 0 0;"></div>
+					<section id="content-section" style="margin:0 auto; max-width: 1024px;" class="mdc-elevation--z4">
+						<article id="article-section" class="mdc-typography" style="margin: 0; padding: 20px;">
+							<h1 id=heading-resources class="mdc-typography--headline1 mwen-heading-h1">ECE
+								20001 / ECE 201 Resources</h1>
 
-            <h1 class="mdc-typography--headline1" id="heading-grading">Grade Calculator</h1>
+							<!-- Lessons and Resources -->
+							<a data-toggle="collapse" href="#lesson-one" role="button" aria-expanded="false" aria-controls="lesson-one">
+								<div class="mwen-section-heading card card-body" style="width: 100%;">Exam 1 Content</div>
+							</a>
+							<div class="collapse" id="lesson-one">
+								<a mimetype="application/pdf" href="content/examOneContent/OhmsLawNodeKVLETC.pdf"><div class="card card-body">Lesson 1: Ohms Law, Node, KVL, KVC, Nodal Analysis, Mesh Analysis</div></a >
+								<a href="content/examOneContent/Thevenin.pdf"><div class="card card-body">Lesson 2: Thevenin Equivalent</div></a>
+							</div>
 
-            <div class="mdc-grid-list" style="margin: 20px;">
-              <ul class="mdc-grid-list__tiles">
-                <li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
-                  <div class="mdc-layout-grid__cell" id='exam1-textbox'>
-                    <div class="mdc-text-field mdc-grid-title__primary">
-                      <input type="text" id="my-text-field" class="mdc-text-field__input">
-                      <label class="mdc-floating-label" for="my-text-field">Exam 1</label>
-                      <div class="mdc-line-ripple"></div>
-                    </div>
-                  </div>
-                </li>
-                <li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
-                  <div class="mdc-layout-grid__cell" id='exam2-textbox'>
-                    <div class="mdc-text-field mdc-grid-title__primary">
-                      <input type="text" id="my-text-field" class="mdc-text-field__input">
-                      <label class="mdc-floating-label" for="my-text-field">Exam 2</label>
-                      <div class="mdc-line-ripple"></div>
-                    </div>
-                  </div>
-                </li>
-                <li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
-                  <div class="mdc-layout-grid__cell" id='exam3-textbox'>
-                    <div class="mdc-text-field mdc-grid-title__primary">
-                      <input type="text" id="my-text-field" class="mdc-text-field__input">
-                      <label class="mdc-floating-label" for="my-text-field">Exam 3</label>
-                      <div class="mdc-line-ripple"></div>
-                    </div>
-                  </div>
-                </li>
-                <li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
-                  <div class="mdc-layout-grid__cell" id=final-textbox>
-                    <div class="mdc-text-field mdc-grid-title__primary">
-                      <input type="text" id="my-text-field" class="mdc-text-field__input">
-                      <label class="mdc-floating-label" for="my-text-field">Final</label>
-                      <div class="mdc-line-ripple"></div>
-                    </div>
-                  </div>
-                </li>
-                <li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
-                  <div class="mdc-layout-grid__cell" id='homework-textbox'>
-                    <div class="mdc-text-field mdc-grid-title__primary">
-                      <input type="text" id="my-text-field" class="mdc-text-field__input">
-                      <label class="mdc-floating-label" for="my-text-field">Homework</label>
-                      <div class="mdc-line-ripple"></div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+							<a data-toggle="collapse" href="#everything-else" role="button" aria-expanded="false"
+								       aria-controls="everything-else">
+								<div class="mwen-section-heading card card-body" style="width: 100%;">Everything Else</div>
+							</a>
+							<div class="collapse" id="everything-else">
+								<div class="card card-body">
+									<a href='https://www.dropbox.com/sh/okg4k0ouhziu7wq/AABqcFvDdEzcQa2_B7pQjt3Ma?dl=0'>Work in
+										Progress. Click me for now.</a>
+								</div>
+							</div>
 
-            <a class="mdc-button mdc-button--raised" id="submit-button" style="margin-left: 20px;">
-              <div class="mdc-button__ripple"></div>
-              <span class="mdc-button__label">Submit</span>
-            </a>
 
-            <h1 id=heading-previous class="mdc-typography--headline1" style="margin-bottom: 0;padding-bottom: 0;">Previous Year Estimated Curve Result</h1>
+							<h1 class="mdc-typography--headline1 mwen-heading-h1" id="heading-grading">Grade Calculator</h1>
 
-            <p class="mdc-typography--body1">Sample size is 246 out of around 410 stuents. Grade is dependent on how well your section did. This is the breakdown. The first 20% got an A [A+, A, A-], the next 20% got a B, the next 30% got a C, 
-              next 20% got a D, and the last 10% got an F. There a 2% bonus for the survey at the end of the semester.
-              <br> <a href=https://github.com/matthewwen/thecurve/blob/master/thecurve/main.c>Method: Parser (json). Sort Method (min-heap) at O(n) space [linked list to array], O(n * log(n)) time.</a>
-            </p>
+							<div class="mdc-grid-list" style="margin: 20px;">
+								<ul class="mdc-grid-list__tiles">
+									<li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
+										<div class="mdc-layout-grid__cell" id='exam1-textbox'>
+											<div class="mdc-text-field mdc-grid-title__primary">
+												<input type="text" id="my-text-field" class="mdc-text-field__input">
+												<label class="mdc-floating-label" for="my-text-field">Exam 1</label>
+												<div class="mdc-line-ripple"></div>
+											</div>
+										</div>
+									</li>
+									<li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
+										<div class="mdc-layout-grid__cell" id='exam2-textbox'>
+											<div class="mdc-text-field mdc-grid-title__primary">
+												<input type="text" id="my-text-field" class="mdc-text-field__input">
+												<label class="mdc-floating-label" for="my-text-field">Exam 2</label>
+												<div class="mdc-line-ripple"></div>
+											</div>
+										</div>
+									</li>
+									<li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
+										<div class="mdc-layout-grid__cell" id='exam3-textbox'>
+											<div class="mdc-text-field mdc-grid-title__primary">
+												<input type="text" id="my-text-field" class="mdc-text-field__input">
+												<label class="mdc-floating-label" for="my-text-field">Exam 3</label>
+												<div class="mdc-line-ripple"></div>
+											</div>
+										</div>
+									</li>
+									<li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
+										<div class="mdc-layout-grid__cell" id=final-textbox>
+											<div class="mdc-text-field mdc-grid-title__primary">
+												<input type="text" id="my-text-field" class="mdc-text-field__input">
+												<label class="mdc-floating-label" for="my-text-field">Final</label>
+												<div class="mdc-line-ripple"></div>
+											</div>
+										</div>
+									</li>
+									<li class="mdc-grid-tile" style="margin: 0 10px; margin-bottom: 10px;">
+										<div class="mdc-layout-grid__cell" id='homework-textbox'>
+											<div class="mdc-text-field mdc-grid-title__primary">
+												<input type="text" id="my-text-field" class="mdc-text-field__input">
+												<label class="mdc-floating-label" for="my-text-field">Homework</label>
+												<div class="mdc-line-ripple"></div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
 
-            <div class="mdc-data-table" style="margin:0 auto;">
-              <table class="mdc-data-table__table">
-                <thead>
-                  <tr class="mdc-data-table__header-row">
-                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Score (include +/-) </th>
-                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader"
-                      scope="col">High (%)</th>
-                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader"
-                      scope="col">Low (%)</th>
-                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Comments</th>
-                  </tr>
-                </thead>
-                <tbody class="mdc-data-table__content">
-                  <tr class="mdc-data-table__row">
-                    <td class="mdc-data-table__cell">A</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">101</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">83</td>
-                    <td class="mdc-data-table__cell">"Cutoff for an A was higher than Expected"</td>
-                  </tr>
-                  <tr class="mdc-data-table__row">
-                    <td class="mdc-data-table__cell">B</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">82</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">73</td>
-                    <td class="mdc-data-table__cell">"Most Accurate Row"</td>
-                  </tr>
-                  <tr class="mdc-data-table__row">
-                    <td class="mdc-data-table__cell">C</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">72</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">59</td>
-                    <td class="mdc-data-table__cell">"Professors tried to give as many C as possible than C-. <br>
-                      Therefore more students can take ECE 20002 without retaking the class."</td>
-                  </tr>
-                  <tr class="mdc-data-table__row">
-                    <td class="mdc-data-table__cell">D</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">58</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">45</td>
-                    <td class="mdc-data-table__cell">No Comment</td>
-                  </tr>
-                  <tr class="mdc-data-table__row">
-                    <td class="mdc-data-table__cell">F</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">44</td>
-                    <td class="mdc-data-table__cell mdc-data-table__cell--numeric">0</td>
-                    <td class="mdc-data-table__cell">No Comment</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+							<a class="mdc-button mdc-button--raised" id="submit-button" style="margin-left: 20px;">
+								<div class="mdc-button__ripple"></div>
+								<span class="mdc-button__label">Submit</span>
+							</a>
 
-            <h1 id=heading-tips class="mdc-typography--headline1">Tips and Tricks</h1>
-            <h4 class="mdc-typography--headline4">USE PIAZZA PLEASE!!!</h4>
-            <p class="mdc-typography--body1">Professors and TAs want to know the type of questions you are struggling on. DO NOT ask people on GroupMe because A. You will probably get the wrong answer and B. Your professor won't know how to improve unless you make a comment about it.
-            </p>
-            <h4 class="mdc-typography--headline4">This website is not helpful. Why does it exist?</h4>
-            <p class="mdc-typography--body1"> I apologize. However, when I was a TA for this class, I noticed a ton of hardworking students who, in my opinion, deserved an A but ended up barely passing. As a result, I want to try my best to help ECE students, and I guess ME and IE students, get over this hump by giving out potential resources that can help them STUDY EFFECTIVELY. If you think this website can be better, send a suggestion to the developer inside the hambergermenu (mwen doesn't bite).
-            </p>
-            <h4 class="mdc-typography--headline4">I am struggling on the Homework. What should I do?</h4>
-            <p class="mdc-typography--body1">I would recommend going to office hours (open 35 hours a week). Some of the TAs are nice. In addition, your professors host office hours. However, the homework is not exactly like the exam. Therefore, you should not be caught up with the homework if you are struggling on it. If you are in a rush, at least UNDERSTAND THE CONCEPT.
-            </p>
-            <h4 class="mdc-typography--headline4">I got less than a 50% on my first exam. What should I do?</h4>
-            <p class="mdc-typography--body1">It is still possible to get an A in the class. Here is an example: [exam 1: 20, exam 2: 90%, exam 3: 90%, final: 76%, homework: 100%]. Even ask Tridib Saha about it. Understand what you did wrong and then do better next time.</p>
-            <h4 class="mdc-typography--headline4">What concept is the most important to understand in this class?</h4>
-            <p class="mdc-typography--body1">OHMS LAW aka V = I * R. This does not mean just memorize the formula. You need to understand the relationship current has towards a resistor / capactior/ inductor to create a voltage potential. 
-              To do so, understand the location of the positive and negative terminal [Voltage Terminal] of a load [resistor, inductor, capactior], and the direction of current to get the correct answer</p>
-            <h4 class="mdc-typography--headline4">How do I get an A in the class?</h4>
-            <p class="mdc-typography--body1">Understand ohms law before the first exam, as discussed above [completely -> what is a node? How nodes have a voltage potential?]. Afterwards, you are set for the rest of the semester.</p>
-            <h4 class="mdc-typography--headline4">How do I complain about the difficulty of the exam?</h4>
-            <p class="mdc-typography--body1">If you hate good professors and your TAs, use Piazza. Bad professors do not check piazza. Otherwise, talk about it with your professor with an attitude. Respect that this course may be difficult for many people, even those who are extremely hardworking.
-            </p>
-            <h4 class="mdc-typography--headline4">I'm a better web developer than you. What should I do?</h4>
-            <p class="mdc-typography--body1" style="margin-bottom: 100px;">Ahhh, fine. What you can do is fork the <a href="https://github.com/matthewwen/ECE20001">repository</a>, and then send me an <a href="mailto:wen101@purdue.edu">email</a> about it. I'll check it out and make some changes. I'm always willing to improve my nifty coding ability. I am still trying to make it mobile friendly in the first place, and the bottom margin is off. 
-            </p>
-          </article>
-        </section>
-      </div>
-    </div>
+							<h1 id=heading-previous class="mdc-typography--headline1 mwen-heading-h1">
+								Previous Year Estimated Curve Result</h1>
 
-    <!-- Dialog Showing Score -->
-    <div class="mdc-dialog" id='score-dialog-box'>
-      <div class="mdc-dialog__container">
-        <div class="mdc-dialog__surface"
-          role="alertdialog"
-          aria-modal="true"
-          aria-labelledby="my-dialog-title"
-          aria-describedby="my-dialog-content">
+							<p class="mdc-typography--body1">Sample size is 246 out of around 410 stuents. Grade is dependent on how
+							well your section did. This is the breakdown. The first 20% got an A [A+, A, A-], the next 20% got a B,
+							the next 30% got a C,
+							next 20% got a D, and the last 10% got an F. There a 2% bonus for the survey at the end of the semester.
+							<br> <a href=https://github.com/matthewwen/thecurve/blob/master/thecurve/main.c>Method: Parser (json). Sort
+								Method (min-heap) at O(n) space [linked list to array], O(n * log(n)) time.</a> </p> <div
+	  class="mdc-data-table" style="margin:0 auto;">
+								<table class="mdc-data-table__table">
+									<thead>
+										<tr class="mdc-data-table__header-row">
+											<th class="mdc-data-table__header-cell" role="columnheader" scope="col">Score (include +/-) </th>
+											<th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader"
+											scope="col">High (%)</th>
+											<th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric" role="columnheader"
+											scope="col">Low (%)</th>
+											<th class="mdc-data-table__header-cell" role="columnheader" scope="col">Comments</th>
+										</tr>
+									</thead>
+									<tbody class="mdc-data-table__content">
+										<tr class="mdc-data-table__row">
+											<td class="mdc-data-table__cell">A</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">101</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">83</td>
+											<td class="mdc-data-table__cell">"Cutoff for an A was higher than Expected"</td>
+										</tr>
+										<tr class="mdc-data-table__row">
+											<td class="mdc-data-table__cell">B</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">82</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">73</td>
+											<td class="mdc-data-table__cell">"Most Accurate Row"</td>
+										</tr>
+										<tr class="mdc-data-table__row">
+											<td class="mdc-data-table__cell">C</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">72</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">59</td>
+											<td class="mdc-data-table__cell">"Professors tried to give as many C as possible than C-. <br>
+												Therefore more students can take ECE 20002 without retaking the class."</td>
+										</tr>
+										<tr class="mdc-data-table__row">
+											<td class="mdc-data-table__cell">D</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">58</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">45</td>
+											<td class="mdc-data-table__cell">No Comment</td>
+										</tr>
+										<tr class="mdc-data-table__row">
+											<td class="mdc-data-table__cell">F</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">44</td>
+											<td class="mdc-data-table__cell mdc-data-table__cell--numeric">0</td>
+											<td class="mdc-data-table__cell">No Comment</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 
-          <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
-          <h2 class="mdc-dialog__title" id="my-dialog-title">Calculated Score</h2>
-          <div class="mdc-dialog__content" id="my-dialog-content">Dialog body text goes here.</div>
-          <footer class="mdc-dialog__actions">
-            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes">
-              <span class="mdc-button__label">okay</span>
-            </button>
-          </footer>
-        </div>
-      </div>
+							<h1 id=heading-tips class="mdc-typography--headline1 mwen-heading-h1">Tips and Tricks</h1>
+							<h4 class="mdc-typography--headline4">USE PIAZZA PLEASE!!!</h4>
+							<p class="mdc-typography--body1">Professors and TAs want to know the type of questions you are struggling on. DO
+							NOT ask people on GroupMe because A. You will probably get the wrong answer and B. Your professor won't know how
+							to improve unless you make a comment about it.
+							</p>
+							<h4 class="mdc-typography--headline4">This website is not helpful. Why does it exist?</h4>
+							<p class="mdc-typography--body1"> I apologize. However, when I was a TA for this class, I noticed a ton of
+							hardworking students who, in my opinion, deserved an A but ended up barely passing. As a result, I want to try
+							my best to help ECE students, and I guess ME and IE students, get over this hump by giving out potential
+							resources that can help them STUDY EFFECTIVELY. If you think this website can be better, send a suggestion to
+							the developer inside the hambergermenu (mwen doesn't bite).
+							</p>
+							<h4 class="mdc-typography--headline4">I am struggling on the Homework. What should I do?</h4>
+							<p class="mdc-typography--body1">I would recommend going to office hours (open 35 hours a week). Some of the TAs
+							are nice. In addition, your professors host office hours. However, the homework is not exactly like the exam.
+							Therefore, you should not be caught up with the homework if you are struggling on it. If you are in a rush, at
+							least UNDERSTAND THE CONCEPT.
+							</p>
+							<h4 class="mdc-typography--headline4">I got less than a 50% on my first exam. What should I do?</h4>
+							<p class="mdc-typography--body1">It is still possible to get an A in the class. Here is an example: [exam 1: 20%,
+							exam 2: 90%, exam 3: 90%, final: 76%, homework: 100%]. Even ask Tridib Saha about it. Understand what you did
+							wrong and then do better next time.</p>
+							<h4 class="mdc-typography--headline4">What concept is the most important to understand in this class?</h4>
+							<p class="mdc-typography--body1">OHMS LAW aka V = I * R. This does not mean just memorize the formula. You need to
+							understand the relationship current has towards a resistor / capactior/ inductor to create a voltage potential.
+							To do so, understand the location of the positive and negative terminal [Voltage Terminal] of a load [resistor,
+							inductor, capactior], and the direction of current to get the correct answer</p>
+							<h4 class="mdc-typography--headline4">How do I get an A in the class?</h4>
+							<p class="mdc-typography--body1">Understand ohms law before the first exam, as discussed above [completely -> what
+							is a node? How nodes have a voltage potential?]. Afterwards, you are set for the rest of the semester.</p>
+							<h4 class="mdc-typography--headline4">How do I complain about the difficulty of the exam?</h4>
+							<p class="mdc-typography--body1">If you hate good professors and your TAs, use Piazza. Bad professors do not check
+							piazza. Otherwise, talk about it with your professor with an attitude. Respect that this course may be difficult
+							for many people, even those who are extremely hardworking.
+							</p>
+							<h4 class="mdc-typography--headline4">I'm a better web developer than you. What should I do?</h4>
+							<p class="mdc-typography--body1">Ahhh, fine. What you can do is fork the <a
+					href="https://github.com/matthewwen/ECE20001">repository</a>, and then send me an <a
+     href="mailto:wen101@purdue.edu">email</a> about it. I'll check it out and make some changes. I'm always
+   willing to improve my nifty coding ability. I am still trying to make it mobile friendly in the first place, and
+   the bottom margin is off.
+							</p>
+						</article>
+					</section>
+				</div>
+			</div>
+		</div>
 
-      <div class="mdc-dialog__scrim"></div>
+		<!-- Dialog Showing Score -->
+		<div class="mdc-dialog" id='score-dialog-box'>
+			<div class="mdc-dialog__container">
+				<div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title"
+									  aria-describedby="my-dialog-content">
 
-    <!-- End of root -->
-  </div>
-</body>
+					<!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+					<h2 class="mdc-dialog__title" id="my-dialog-title">Calculated Score</h2>
+					<div class="mdc-dialog__content" id="my-dialog-content">Dialog body text goes here.</div>
+					<footer class="mdc-dialog__actions">
+						<button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes">
+							<span class="mdc-button__label">okay</span>
+						</button>
+					</footer>
+				</div>
+			</div>
 
-<script src="cdn/jquery-1.11.0.min.js"></script>
-<script src="cdn/jquery.cookie.js"></script>
+			<div class="mdc-dialog__scrim"></div>
 
-<script>
-  var DRAWER_THRESHOLD = 500;
+			<!-- End of root -->
+		</div>
+	</body>
 
-  var section_selected = '#menu-grading';
 
-  var wind_width = $('#main-content').width();
-  var grid_width = $('#grade-input-text').width();
-  if (wind_width < grid_width) {
-    $('grade-input-text').width(wind_width);
-  }
-
-  const exam1 = mdc.textField.MDCTextField.attachTo(document.querySelector('#exam1-textbox'));
-  const exam2 = mdc.textField.MDCTextField.attachTo(document.querySelector('#exam2-textbox'));
-  const exam3 = mdc.textField.MDCTextField.attachTo(document.querySelector('#exam3-textbox'));
-  const homew = mdc.textField.MDCTextField.attachTo(document.querySelector('#homework-textbox'));
-  const final = mdc.textField.MDCTextField.attachTo(document.querySelector('#final-textbox'));
-
-  const submit = mdc.ripple.MDCRipple.attachTo(document.querySelector('#submit-button'));
-  const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector('#score-dialog-box'));
-
-  function page_change() {
-    mdc.ripple.MDCRipple.attachTo(document.querySelector("#hambergermenu"));
-    topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector("#pkg-top-app-bar"));
-    topAppBar.setScrollTarget(document.querySelector('#main-content'));
-    const list = mdc.list.MDCList.attachTo(document.querySelector('#side-action-list'));
-    list.wrapFocus = true;
-    drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector("#side-action-drawer"));
-    window.addEventListener("contextmenu", e => {
-      e.preventDefault();
-    });
-    if (drawer.open == true && window.innerWidth < DRAWER_THRESHOLD) {
-      drawer.open = false;
-    }
-    else if (window.innerWidth < DRAWER_THRESHOLD) {
-      drawer.open = false;
-    }
-
-    topAppBar.listen('MDCTopAppBar:nav', () => {
-      drawer.open = !drawer.open;
-    });
-
-    $('#submit-button').click(function () {
-      var inte1 = exam1.value;
-      var inte2 = exam2.value;
-      var inte3 = exam3.value;
-      var inthw = homew.value;
-      var intfn = final.value;
-
-      var your1 = 0;
-      var your2 = 0;
-
-      var total1 = 0;
-      var total2 = 0;
-
-      var considered = "<h3>Parameters Considered</h3><ol>";
-
-      if (!isNaN(parseFloat(inte1))) {
-        total1 += 20;
-        total2 += 25;
-
-        your1 += parseFloat(inte1) * 0.2;
-        your2 += parseFloat(inte1) * 0.25;
-        considered += "<li>Exam 1</li>"
-      }
-
-      if (!isNaN(parseFloat(inte2))) {
-        total1 += 20;
-        total2 += 25;
-
-        your1 += parseFloat(inte2) * 0.2;
-        your2 += parseFloat(inte2) * 0.25;
-
-        considered += "<li>Exam 2</li>"
-      }
-
-      if (!isNaN(parseFloat(inte3))) {
-        total1 += 20;
-        total2 += 25;
-
-        your1 += parseFloat(inte3) * 0.2;
-        your2 += parseFloat(inte3) * 0.25;
-
-        considered += "<li>Exam 3</li>"
-      }
-
-      var submit3 = total2 == 75;
-
-      if (!isNaN(parseFloat(intfn))) {
-        total1 += 25;
-        total2 += 35;
-
-        your1 += parseFloat(intfn) * 0.25;
-        your2 += parseFloat(intfn) * 0.35;
-
-        considered += "<li>Final</li>"
-      }
-
-      if (!isNaN(parseFloat(inthw))) {
-        total1 += 15;
-        total2 += 10;
-
-        your1 += parseFloat(inthw) * 0.15;
-        your2 += parseFloat(inthw) * 0.1;
-
-        console.log(parseFloat(inthw));
-
-        considered += "<li>Homework</li>"
-      }
-      considered += '</ol>'
-
-      if (submit3 == true) {
-        var min = parseFloat(inte1) > parseFloat(inte2) ? parseFloat(inte2) : parseFloat(inte1);
-        min = min > parseFloat(inte3) ? parseFloat(inte3) : min;
-        total2 = total2 - 25 + 5;
-
-        your2 = your2 - min * 0.25 + min * 0.05;
-      }
-
-      var grade = null;
-      if (total1 > 0 && total2 > 0) {
-        your1 = your1 / total1;
-        your2 = your2 / total2;
-        grade = your1 > your2 ? your1 : your2;
-        grade += 0.02;
-        console.log(your1 > your2 ? "option 1" : "option 2");
-      }
-
-      if (grade != null) {
-        grade = grade * 100;
-        considered += "<h3>Final Score: " + grade.toFixed(2) + "% </h3>"
-      }
-      else {
-        considered += "<h3>Final Score: 0% </h3>"
-      }
-
-      dialog.open();
-      console.log(considered);
-      $('#my-dialog-content').html(considered);
-
-    });
-
-  }
-
-  // events when the window changes size
-  window.onresize = function () {
-    page_change();
-  };
-
-  page_change();
-
-</script>
+	<script src="js/index.js"></script>
 
 </html>

@@ -1,0 +1,19 @@
+.my-grid-list .mdc-grid-tile {
+    width: 400px;
+    --mdc-grid-list-tile-width: 300px;
+}
+
+.h4 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.mwen-section-heading {
+    padding: 10px;
+    height: 70px;
+}
+
+.mwen-heading-h1 {
+	margin-top: 50px; 
+	margin-bottom: 50px; 
+}
